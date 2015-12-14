@@ -36,6 +36,11 @@
 
 - (void)authenticateForSocialMediaType:(SocialMediaType)socialMediaType;
 
+/*
+ @params Tweet - Text you want to Tweet.
+         Image - Image  you want to tweet
+*/
+
 - (void)showSLComposeViewControllerWithTweet:(NSString *)tweet andImage:(UIImage *)image;
 
 @end
