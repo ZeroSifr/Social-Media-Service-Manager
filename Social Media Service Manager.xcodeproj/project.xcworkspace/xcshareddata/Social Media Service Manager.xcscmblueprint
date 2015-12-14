@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "59E7B0B7248CD8799BE6817F1ABB40EDC0A370FC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "744E055C23CB8E60EF3A6972A5224A05E8491540" : 0,
+    "59E7B0B7248CD8799BE6817F1ABB40EDC0A370FC" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "59DCE353-BAA9-4E6C-8F3C-15BA57EDFE13",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "744E055C23CB8E60EF3A6972A5224A05E8491540" : "",
+    "59E7B0B7248CD8799BE6817F1ABB40EDC0A370FC" : "Social%20Media%20Service%20Manager\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Social Media Service Manager",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Social Media Service Manager.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ZeroSifr\/Social-Media-Service-Manager.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "59E7B0B7248CD8799BE6817F1ABB40EDC0A370FC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ZeroSifr\/Social-Media-Manager.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "744E055C23CB8E60EF3A6972A5224A05E8491540"
+    }
+  ]
+}
