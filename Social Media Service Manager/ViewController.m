@@ -68,7 +68,7 @@
         [[self alertController] setMessage:[NSString stringWithFormat:@"%@", [error localizedDescription]]];
         [self presentAlertViewController];
     } else {
-        [[self socialMediaServiceManager] showSLComposeViewControllerWithTweet:@"Test Tweet from my Social Media Class" andImage:nil];
+        [[self socialMediaServiceManager] showSLComposeViewControllerWithTweet:@"Test Tweet from Social Media Class" andImage:nil];
     }
 }
 
