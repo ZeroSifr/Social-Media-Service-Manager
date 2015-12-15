@@ -22,6 +22,7 @@
 
 @property (nonatomic, weak) id<SocialMediaServiceManagerDelegate> delegate;
 
+
 /*
     Facebook APP ID. This is required as part of the authentication process.
 */
@@ -35,6 +36,19 @@
  */
 
 @property (nonatomic, strong) NSDictionary *facebookAccountOptions;
+
+
+/*
+ @params StatusText - Text you want to share to Facebook
+         Image - Image you want to share to Facebook
+
+ This creates a background SLRequest and posts your status text 
+ and image Facebook. Use this method if you don't want to see any prompt.
+ 
+*/
+
+- (void)postToFacebook:(NSString *)statusText withImage:(UIImage *)image;
+
 
 /*
  @params SocialMediaType - Twitter, Facebook, GooglePlus

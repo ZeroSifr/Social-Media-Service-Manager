@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) NSDictionary *accountsErrorMessages;
 @property (nonatomic) BOOL twitterAuthenticationGranted;
+@property (nonatomic) BOOL facebookAuthenticationGranted;
+@property (nonatomic) ACAccount *facebookAccount;
 
 @end
 
@@ -56,6 +58,20 @@
     }
 }
 
+- (void)postToFacebook:(NSString *)statusText withImage:(UIImage *)image {
+    
+    SLRequest *request = [SLRequest requestForServiceType:SLServiceTypeFacebook
+                                            requestMethod:SLRequestMethodPOST
+                                                      URL:[NSURL URLWithString:@"https://graph.facebook.com/me/feed"]
+                                               parameters:@{@"message" : statusText}];
+    
+    [request setAccount:[self facebookAccount]];
+    
+    [request performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+   
+    }];
+}
+
 #pragma mark - Private
 
 - (NSDictionary *)accountsErrorMessages {
@@ -75,15 +91,19 @@
     
     [accountStore requestAccessToAccountsWithType:facebookAccountType
                                           options:@{ACFacebookAppIdKey:@"205213729813541",
-                                                    ACFacebookPermissionsKey: @[@"email"],
+                                                    ACFacebookPermissionsKey: @[@"email", @"publish_actions"],
                                                     ACFacebookAudienceKey: ACFacebookAudienceFriends,
                                                     }
      
                                        completion:^(BOOL granted, NSError *error) {
                                            
        if (granted) {
+           
+           [self setFacebookAuthenticationGranted:granted];
+           
            NSArray *accounts = [accountStore accountsWithAccountType:facebookAccountType];
            if ([accounts count] > 0) {
+               [self setFacebookAccount:[accounts lastObject]];
                if ([[self delegate] respondsToSelector:@selector(didAllowAccessToSocialMediaType:withError:)]) {
                    [[self delegate] didAllowAccessToSocialMediaType:Twitter withError:error];
                }
@@ -94,6 +114,7 @@
        }
     }];
 }
+
 - (void)UKPRI_authenticateTwitter {
     
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];

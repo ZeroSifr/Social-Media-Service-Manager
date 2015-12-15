@@ -69,6 +69,8 @@
         [self presentAlertViewController];
         return;
     }
+    
+    [[self socialMediaServiceManager] postToFacebook:nil withImage:nil];
 }
 
 - (void)accountNotFoundForSocialMediaType:(SocialMediaType)socialMediaType withErrorMessage:(NSString *)errorMessage {
