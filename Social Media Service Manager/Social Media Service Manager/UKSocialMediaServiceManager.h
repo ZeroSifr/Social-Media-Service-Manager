@@ -23,6 +23,20 @@
 @property (nonatomic, weak) id<SocialMediaServiceManagerDelegate> delegate;
 
 /*
+    Facebook APP ID. This is required as part of the authentication process.
+*/
+
+
+@property (nonatomic, strong) NSString *facebookAppIDKey;
+
+
+/*
+    Facebook account options. This is required when requesting access.
+ */
+
+@property (nonatomic, strong) NSDictionary *facebookAccountOptions;
+
+/*
  @params SocialMediaType - Twitter, Facebook, GooglePlus
  
  Begins authentication process for the passed in social media type.

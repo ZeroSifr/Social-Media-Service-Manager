@@ -26,6 +26,7 @@
             [self UKPRI_authenticateTwitter];
             break;
         case 1:
+            [self UKPRI_authenticateFacebook];
             break;
         default:
             break;
@@ -67,6 +68,32 @@
     return _accountsErrorMessages;
 }
 
+- (void)UKPRI_authenticateFacebook {
+    
+    ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+    ACAccountType *facebookAccountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierFacebook];
+    
+    [accountStore requestAccessToAccountsWithType:facebookAccountType
+                                          options:@{ACFacebookAppIdKey:@"205213729813541",
+                                                    ACFacebookPermissionsKey: @[@"email"],
+                                                    ACFacebookAudienceKey: ACFacebookAudienceFriends,
+                                                    }
+     
+                                       completion:^(BOOL granted, NSError *error) {
+                                           
+       if (granted) {
+           NSArray *accounts = [accountStore accountsWithAccountType:facebookAccountType];
+           if ([accounts count] > 0) {
+               if ([[self delegate] respondsToSelector:@selector(didAllowAccessToSocialMediaType:withError:)]) {
+                   [[self delegate] didAllowAccessToSocialMediaType:Twitter withError:error];
+               }
+           }
+       } else {
+                [[self delegate] accountNotFoundForSocialMediaType:Twitter
+                                                  withErrorMessage:[[self accountsErrorMessages] objectForKey:@(Facebook)]];
+       }
+    }];
+}
 - (void)UKPRI_authenticateTwitter {
     
     ACAccountStore *accountStore = [[ACAccountStore alloc] init];
